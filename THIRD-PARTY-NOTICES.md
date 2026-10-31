@@ -2,7 +2,12 @@
 
 Short Tech is developed by Techno Sen (https://www.techno-sen.com) and is licensed under the GNU General Public
 License v3.0 (see `LICENSE.txt`). It is a modified version of Adawat by Motalim, also licensed under the GPL v3;
-Techno Sen modified it in 2026. Complete source code: https://github.com/techno-sen/Short-Tech
+Techno Sen modified it in 2026.
+
+**Written offer for source code.** For at least three years from the date you received this copy, and for as long as
+Techno Sen offers support for this version, anyone who has a copy of Short Tech may get its complete corresponding
+source code from Techno Sen, for no more than the reasonable cost of providing it. Request it through
+https://www.techno-sen.com.
 
 ## FFmpeg 8.1 — GPL v3
 
