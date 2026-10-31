@@ -1,15 +1,7 @@
-# Installed apps
-Adawat/
-ShortTech/
-
-# IDE
-.vscode/
-.idea/
-
-# OS
-Thumbs.db
-Desktop.ini
-.DS_Store
-
-# Claude
-.claude/
+bin/
+obj/
+.vs/
+*.user
+publish/
+installer/Output/
+ShortTech/tools/ffmpeg.exe

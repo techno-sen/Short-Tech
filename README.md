@@ -1,44 +1,39 @@
-# Tangerine 🍊
+# Short Tech
 
-A beautiful self-care app that combines **habit tracking**, **mood logging**, **journaling**, and **weekly insights** — all in one place.
+File tools for Windows, one gesture away. Start dragging any file, press **Shift**, **Ctrl** or **Alt**, and a wheel opens at the cursor. Drop the file on what you need.
 
-![Tangerine App](https://img.shields.io/badge/Version-1.0-orange) ![License](https://img.shields.io/badge/License-MIT-green)
+| Key | Wheel | What it offers |
+| --- | --- | --- |
+| Shift | Convert | Images, video, audio, PDF, documents, spreadsheets, slides, subtitles and archives to other formats |
+| Ctrl | Tools | Depends on the file: resize, compress, crop, trim, change speed, join, redact, annotate, read text, lock a PDF with a password and more |
+| Alt | Actions | Share, Float, copy, move, rename in bulk, copy path, open a terminal |
 
-## Features
+Files are processed on your computer and are never uploaded. The interface is available in English and Arabic.
 
-- **Habit Tracking** — Create and track daily or weekly habits with streaks, progress rings, and confetti celebrations
-- **Mood Check-in** — Log how you're feeling each day with five mood levels
-- **Daily Journaling** — Guided reflection prompts that change every day, plus free-form writing
-- **Insights & Analytics** — Weekly mood trends and habit completion charts powered by Chart.js
-- **Streak Board** — See your current streaks for every habit at a glance
-- **Date Navigation** — Browse past and future days with the horizontal date strip
-- **Dark & Light Themes** — Automatic theme detection with manual toggle
-- **Motivational Quotes** — A new inspirational quote every day
-- **Local Storage** — All data saved privately in your browser
+## Build from source
 
-## Getting Started
-
-Just open `index.html` in any modern browser. No server, no build step, no dependencies to install.
+You need Windows 10 (1809 or later, x64) and the [.NET 9 SDK](https://dotnet.microsoft.com/download/dotnet/9.0).
 
 ```
-git clone https://github.com/YOUR_USERNAME/tangerine.git
-cd tangerine
-open index.html
+dotnet build ShortTech.sln -c Release
 ```
 
-## Tech Stack
+**FFmpeg is not in this repository** because the file is larger than GitHub's limit. Video and audio tools need it, so either put `ffmpeg.exe` in `ShortTech/tools/` before building, or have it on your `PATH`. The exact build used by Short Tech is listed in [THIRD-PARTY-NOTICES.md](THIRD-PARTY-NOTICES.md).
 
-- Pure HTML, CSS, and JavaScript
-- [Chart.js](https://www.chartjs.org/) for analytics charts
-- [Google Fonts](https://fonts.google.com/) (DM Sans + Fraunces)
-- LocalStorage for data persistence
+## Build the installer
 
-## Screenshots
+With `ffmpeg.exe` in place and [Inno Setup 6](https://jrsoftware.org/isinfo.php) installed:
 
-| Today | Insights | Dark Mode |
-|-------|----------|-----------|
-| Habit tracking with progress ring | Weekly mood and habit charts | Full dark theme support |
+```
+dotnet publish ShortTech/ShortTech.csproj -c Release -r win-x64 --self-contained true -p:DebugType=None -p:DebugSymbols=false -o publish/ShortTech
+dotnet publish shorttech-cli/shorttech-cli.csproj -c Release -r win-x64 --self-contained true -p:DebugType=None -p:DebugSymbols=false -o publish/ShortTech
+iscc installer/ShortTech.iss
+```
+
+The installer is written to `installer/Output/`. It includes its own copy of .NET, so the target PC does not need .NET installed.
 
 ## License
 
-MIT License — feel free to use, modify, and share.
+Short Tech is free software under the [GNU General Public License v3](LICENSE.txt) and comes with no warranty. Origin and third-party components are listed in [THIRD-PARTY-NOTICES.md](THIRD-PARTY-NOTICES.md).
+
+Developed by [Techno Sen](https://www.techno-sen.com).
