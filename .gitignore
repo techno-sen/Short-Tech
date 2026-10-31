@@ -1,0 +1,15 @@
+# Installed apps
+Adawat/
+ShortTech/
+
+# IDE
+.vscode/
+.idea/
+
+# OS
+Thumbs.db
+Desktop.ini
+.DS_Store
+
+# Claude
+.claude/
